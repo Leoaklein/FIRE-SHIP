@@ -1,0 +1,3 @@
+# W
+W_WIDTH = 256
+W_HEIGHT = 608
