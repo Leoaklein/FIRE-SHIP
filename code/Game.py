@@ -2,6 +2,8 @@ import pygame
 
 from code.Background import Background
 from code.Const import W_WIDTH, W_HEIGHT
+from code.Level import Level
+from code.Menu import Menu
 
 
 class Game:
@@ -11,19 +13,25 @@ class Game:
         self.running = True
         pygame.display.set_caption("FIRE SHIP")
         self.background = Background()
-        self.clock = pygame.time.Clock()
+        self.level = Level(self.window)
+
 
     def run(self):
         while self.running:
+            menu = Menu(self.window)
+            menu_return = menu.run()
+
+            if menu_return == 0:
+                self.level.run()
+                #implementar as outras opções de menu
+            elif menu_return == 1:
+                pass
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
-            self.background.move()
-            self.window.fill((0, 0, 0)) #limpa a tela
-            self.background.draw(self.window)
-            pygame.display.flip()
-            self.clock.tick(60)
-        pygame.quit()
+                    pygame.quit()
+
+
 
 
 game = Game()
