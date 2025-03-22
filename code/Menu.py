@@ -17,11 +17,8 @@ class Menu:
 
             self.window.blit(source=self.surf, dest=self.rect)
             self.menu_text(50, 'PLAY', (255,255,255),(W_WIDTH/2,W_HEIGHT/2-20))
-            self.menu_text(50, 'SCORE', (255,255,255), (W_WIDTH/2,W_HEIGHT/2+20))
             if menu_option == 0:
                 self.menu_text(50, 'PLAY', (255, 0, 0), (W_WIDTH / 2, W_HEIGHT / 2 - 20))
-            elif menu_option == 1:
-                self.menu_text(50, 'SCORE', (255, 0, 0), (W_WIDTH / 2, W_HEIGHT / 2 + 20))
             pygame.display.flip()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
